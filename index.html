@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ai generated cover letter</title>
+  <link rel="stylesheet" href="style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+ <script src="https://kit.fontawesome.com/1985e44f91.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--navigation bar-->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" id="navbar-logo">
+                <img src="#" class="logo-img">
+            </a>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#service" class="nav-link">Service</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+     <!-- Home Section -->
+      <div class="Home" id="home">
+        <div class="home-container">
+          <h1 class="home-heading">Generate your <span>Cover Letter</span></h1>
+          <p class="home-description">Fast. Personalized. Free.</p>
+          <button class="main-btn"><a href="#service">Get Started</a></button>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="About" id="about">
+        <div class="about-container">
+          <div class="about-img-container">
+            <div class="about-img-card"><i class="fas fa-file-alt"></i></div>
+          </div>
+          <div class="about-content">
+            <h1>What do we do?</h1>
+            <h2>We help you create professional cover letters in seconds</h2>
+            <p>Save time and apply with confidence using our AI-powered tool.</p>
+            <button class="main-btn"><a href="#service">Try It Now</a></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services Section -->
+<div class="Service" id="service">
+  <h1>Build Your Cover Letter</h1>
+  <div class="service-wrapper">
+
+    <!-- Personal & Company Info -->
+    <form class="service-card">
+      <h2>Personal & Company Info</h2>
+      <p>Fill in your details and the company's information</p>
+
+      <label for="full-name">Your full name</label>
+      <input type="text" id="full-name" name="full-name" placeholder="e.g., Mohamed Cajuste" class="input-field">
+
+      <label for="email">Your email</label>
+      <input type="email" id="email" name="email" placeholder="e.g., mohamed@example.com" class="input-field">
+
+      <label for="phone">Your phone number</label>
+      <input type="tel" id="phone" name="phone" placeholder="e.g., (555) 123-4567" class="input-field">
+
+      <label for="recruiter">Recruiter's name (optional)</label>
+      <input type="text" id="recruiter" name="recruiter" placeholder="e.g., John Smith" class="input-field">
+
+      <label for="company-name">Company name</label>
+      <input type="text" id="company-name" name="company-name" placeholder="e.g., Google" class="input-field">
+
+      <label for="position">Position you're applying for</label>
+      <input type="text" id="position" name="position" placeholder="e.g., Data Analyst Intern" class="input-field">
+
+      <label for="company-address">Company address</label>
+      <input type="text" id="company-address" name="company-address" placeholder="e.g., 1600 Amphitheatre Parkway, CA" class="input-field">
+
+    </form>
+
+    <!-- Work Experience -->
+    <form class="service-card">
+      <h2>Work Experience</h2>
+      <p>Describe your relevant experience</p>
+
+      <label for="experience">Your experience</label>
+      <textarea id="experience" name="experience" placeholder="E.g., 2 years as IT Specialist at Walgreens..." rows="10" class="input-field"></textarea>
+
+    </form>
+
+    <!-- Skills -->
+    <form class="service-card">
+      <h2>Skills</h2>
+      <p>List key skills relevant to the job</p>
+
+      <label for="skills">Your skills</label>
+      <textarea id="skills" name="skills" placeholder="E.g., Python, Teamwork, Communication..." rows="10" class="input-field"></textarea>
+    </form>
+
+    <!-- Career Objective -->
+    <form class="service-card">
+      <h2>Career Objective</h2>
+      <p>State your career goals and intentions</p>
+
+      <label for="objective">Your objective</label>
+      <textarea id="objective" name="objective" placeholder="E.g., Seeking to apply my skills in a dynamic team..." rows="10" class="input-field"></textarea>
+
+    </form>
+  </div>
+  <button type="submit" class="main-btn" id="save-service">Submit</button>
+  <div id="cover-letter-output" style="white-space: pre-wrap; margin-top: 20px;"></div>
+</div>
+
+
+
+
+
+    <!-- contact us section -->
+    <div class="contact-section" id="contact">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you! Fill out the form below and we’ll get back to you as soon as possible.</p>
+
+        <div class="contact-wrapper">
+          <form class="contact-form" action="/submit-form" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="contact-name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="contact-email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="main-btn" id="save-contact">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- footer section -->
+<footer class="footer-container">
+  <div class="footer-links">
+    <div class="footer-link-wrapper">
+      <div class="footer-link-items">
+        <h2>Explore</h2>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/testimonials">Testimonials</a>
+        <a href="/careers">Careers</a>
+        <a href="/terms">Terms & Conditions</a>
+      </div>
+      <div class="footer-link-items">
+        <h2>Get in Touch</h2>
+        <a href="/contact">Contact</a>
+        <a href="/support">Support</a>
+        <a href="/locations">Locations</a>
+        <a href="/faq">FAQ</a>
+      </div>
+    </div>
+
+    <div class="footer-link-wrapper">
+      <div class="footer-link-items">
+        <h2>Media</h2>
+        <a href="/submit">Submit Content</a>
+        <a href="/partners">Partners</a>
+        <a href="/press">Press</a>
+      </div>
+      <div class="footer-link-items">
+        <h2>Follow Us</h2>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+        <a href="https://x.com" target="_blank">X (Twitter)</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="social-media">
+    <div class="social-media-wrap">
+        <a href="#" id="footer-logo">
+            <img src="#" class="logo-img">
+        </a>
+        <p class="website-rights">© Awesome Cover Letter 2025. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://instagram.com" class="social-icon-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com" class="social-icon-link" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com" class="social-icon-link" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        </div>
+    </div>
+  </section>
+</footer>
+
+     
+
+
+  <script src="app.js"></script>
+</body>
+</html>
