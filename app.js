@@ -220,7 +220,7 @@ document.getElementById('save-contact').addEventListener('click', () => {
   };
 
   localStorage.setItem('contactData', JSON.stringify(contactData));
-  alert('Contact form saved!');
+  console.log('Contact form saved!');
 });
 
 document.addEventListener("DOMContentLoaded", () => {
