@@ -200,7 +200,10 @@ document.getElementById('save-service').addEventListener('click', () => {
   .then(response => response.json())
   .then(data => {
     if (data.response) {
-      document.getElementById("cover-letter-output").textContent = data.response;
+      const outputSection = document.getElementById("cover-letter-output");
+      outputSection.textContent = data.response;
+      outputSection.classList.remove("hidden");
+      outputSection.scrollIntoView({ behavior: "smooth" });
     } else {
       console.error("Error:", data.error);
     }
