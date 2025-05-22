@@ -176,7 +176,7 @@ document.getElementById('save-service').addEventListener('click', () => {
 
     // Store in localStorage or send to backend
   localStorage.setItem('serviceData', JSON.stringify(serviceData));
-  alert('Service data saved!');
+  console.log('Service data saved!');
 
   const prompt = `
   Write a professional cover letter using the following information:
