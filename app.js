@@ -193,23 +193,22 @@ document.getElementById('save-service').addEventListener('click', () => {
   `;
 
   fetch("https://openai-backend-ppv4.onrender.com/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: prompt }),
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message: prompt }),
+})
+  .then(response => response.json())
+  .then(data => {
+    if (data.response) {
+      document.getElementById("cover-letter-output").textContent = data.response;
+    } else {
+      console.error("Error:", data.error);
+    }
   })
-    .then(response => response.json())
-    .then(data => {
-      if (data.response) {
-        document.getElementById("cover-letter-output").textContent = data.response;
-      } else {
-        alert("Error: " + data.error);
-      }
-    })
-    .catch(err => {
-      alert("Request failed.");
-      console.error(err);
-    });
-});
+  .catch(err => {
+    console.error("Request failed:", err);
+  });
+
 
 
 // Collect contact form inputs and save as JSON
