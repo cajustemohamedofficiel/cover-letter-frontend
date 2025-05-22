@@ -209,7 +209,7 @@ document.getElementById('save-service').addEventListener('click', () => {
     console.error("Request failed:", err);
   });
 
-
+});
 
 // Collect contact form inputs and save as JSON
 document.getElementById('save-contact').addEventListener('click', () => {
@@ -224,6 +224,6 @@ document.getElementById('save-contact').addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  addExperienceEntry(); // existing
-  addSkillEntry();      // add this
+  addExperienceEntry(); 
+  addSkillEntry();     
 });
