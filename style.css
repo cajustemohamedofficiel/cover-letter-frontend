@@ -631,3 +631,15 @@
     margin-top: 24px;
     font-size: 20px;
 }
+@media screen and (max-width: 1300px) {
+    .service-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+} 
+@media screen and (max-width: 760px) {
+    .service-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+} 
