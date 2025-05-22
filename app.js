@@ -9,6 +9,156 @@ const mobileMenu = () => {
 
 menu.addEventListener('click', mobileMenu);
 
+function addExperienceEntry(value = "") {
+  const container = document.getElementById('experience-container');
+
+  // First, mark all existing entries as "submitted" and remove their Add buttons
+  const entries = container.querySelectorAll('.experience-entry');
+  entries.forEach(entry => {
+    const addBtn = entry.querySelector('.add-experience-btn');
+    if (addBtn) addBtn.remove();
+
+    if (!entry.querySelector('.remove-experience-btn')) {
+      const removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.textContent = 'Remove';
+      removeBtn.className = 'small-btn remove-experience-btn';
+      removeBtn.style.marginTop = '10px';
+      removeBtn.onclick = () => {
+        entry.remove();
+        // After removing, re-add add button to last
+        updateExperienceAddButton();
+      };
+      entry.appendChild(removeBtn);
+    }
+  });
+
+  // Create new blank entry (no remove button, but will have Add)
+  const entryDiv = document.createElement('div');
+  entryDiv.className = 'experience-entry';
+  entryDiv.style.marginBottom = '20px';
+
+  const label = document.createElement('label');
+  label.textContent = 'Your experience';
+  const textarea = document.createElement('textarea');
+  textarea.name = 'experience[]';
+  textarea.rows = 5;
+  textarea.className = 'input-field';
+  textarea.placeholder = 'E.g., IT Support at Walgreens...';
+  textarea.value = value;
+
+  // Only this new one gets the Add button
+  const addBtn = document.createElement('button');
+  addBtn.type = 'button';
+  addBtn.textContent = 'Add';
+  addBtn.className = 'small-btn add-experience-btn';
+  addBtn.style.marginTop = '10px';
+  addBtn.onclick = () => addExperienceEntry();
+
+  entryDiv.appendChild(label);
+  entryDiv.appendChild(textarea);
+  entryDiv.appendChild(addBtn);
+
+  container.appendChild(entryDiv);
+}
+
+// Helper to re-add Add button only to the last entry
+function updateExperienceAddButton() {
+  const container = document.getElementById('experience-container');
+  const entries = container.querySelectorAll('.experience-entry');
+
+  // If there's at least one entry, ensure last one has the Add button
+  if (entries.length > 0) {
+    const last = entries[entries.length - 1];
+
+    // Remove any existing Add button first
+    const oldAdd = last.querySelector('.add-experience-btn');
+    if (oldAdd) oldAdd.remove();
+
+    const addBtn = document.createElement('button');
+    addBtn.type = 'button';
+    addBtn.textContent = 'Add';
+    addBtn.className = 'small-btn add-experience-btn';
+    addBtn.style.marginTop = '10px';
+    addBtn.onclick = () => addExperienceEntry();
+
+    last.appendChild(addBtn);
+  }
+}
+function addSkillEntry(value = "") {
+  const container = document.getElementById('skills-container');
+
+  // Mark existing entries as submitted
+  const entries = container.querySelectorAll('.skills-entry');
+  entries.forEach(entry => {
+    const addBtn = entry.querySelector('.add-skill-btn');
+    if (addBtn) addBtn.remove();
+
+    if (!entry.querySelector('.remove-skill-btn')) {
+      const removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.textContent = 'Remove';
+      removeBtn.className = 'small-btn remove-skill-btn';
+      removeBtn.style.marginTop = '10px';
+      removeBtn.onclick = () => {
+        entry.remove();
+        updateSkillAddButton();
+      };
+      entry.appendChild(removeBtn);
+    }
+  });
+
+  // New blank entry
+  const entryDiv = document.createElement('div');
+  entryDiv.className = 'skills-entry';
+  entryDiv.style.marginBottom = '20px';
+
+  const label = document.createElement('label');
+  label.textContent = 'Your skill';
+  const textarea = document.createElement('textarea');
+  textarea.name = 'skills[]';
+  textarea.rows = 3;
+  textarea.className = 'input-field';
+  textarea.placeholder = 'E.g., Python, Teamwork...';
+  textarea.value = value;
+
+  const addBtn = document.createElement('button');
+  addBtn.type = 'button';
+  addBtn.textContent = 'Add';
+  addBtn.className = 'small-btn add-skill-btn';
+  addBtn.style.marginTop = '10px';
+  addBtn.onclick = () => addSkillEntry();
+
+  entryDiv.appendChild(label);
+  entryDiv.appendChild(textarea);
+  entryDiv.appendChild(addBtn);
+
+  container.appendChild(entryDiv);
+}
+
+function updateSkillAddButton() {
+  const container = document.getElementById('skills-container');
+  const entries = container.querySelectorAll('.skills-entry');
+
+  if (entries.length > 0) {
+    const last = entries[entries.length - 1];
+    const oldAdd = last.querySelector('.add-skill-btn');
+    if (oldAdd) oldAdd.remove();
+
+    const addBtn = document.createElement('button');
+    addBtn.type = 'button';
+    addBtn.textContent = 'Add';
+    addBtn.className = 'small-btn add-skill-btn';
+    addBtn.style.marginTop = '10px';
+    addBtn.onclick = () => addSkillEntry();
+
+    last.appendChild(addBtn);
+  }
+}
+
+
+
+
 // Collect service form inputs and save as JSON
 document.getElementById('save-service').addEventListener('click', () => {
   const serviceData = {
@@ -19,8 +169,8 @@ document.getElementById('save-service').addEventListener('click', () => {
     companyName: document.getElementById('company-name').value,
     position: document.getElementById('position').value,
     companyAddress: document.getElementById('company-address').value,
-    experience: document.getElementById('experience').value,
-    skills: document.getElementById('skills').value,
+    experience: Array.from(document.querySelectorAll('textarea[name="experience[]"]')).map(e => e.value).filter(Boolean),
+    skills: Array.from(document.querySelectorAll('textarea[name="skills[]"]')).map(s => s.value).filter(Boolean),
     objective: document.getElementById('objective').value,
   };
 
@@ -37,8 +187,8 @@ document.getElementById('save-service').addEventListener('click', () => {
   - Company: ${serviceData.companyName}
   - Position: ${serviceData.position}
   - Company Address: ${serviceData.companyAddress}
-  - Experience: ${serviceData.experience}
-  - Skills: ${serviceData.skills}
+  - Experience: ${serviceData.experience.join("\n- ")}
+  - Skills: ${serviceData.skills.join(", ")}
   - Objective: ${serviceData.objective}
   `;
 
@@ -74,3 +224,7 @@ document.getElementById('save-contact').addEventListener('click', () => {
   alert('Contact form saved!');
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  addExperienceEntry(); // existing
+  addSkillEntry();      // add this
+});

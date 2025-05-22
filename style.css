@@ -148,7 +148,7 @@
         padding: 0;
   }
 
-    #nav-logo {
+    #navbar-logo {
     padding-left: 25px;
   }
     .navbar-toggle .bar {
@@ -167,6 +167,9 @@
     width: 100%;
     display: table;
   }
+
+
+
     #mobile-menu {
         position: absolute;
         top: 20%;
@@ -241,6 +244,14 @@
     align-items: center;
     width: 160px;
     box-sizing: border-box;
+}
+
+.logo-img {
+  height: 100px;      
+  width: auto;      
+  max-width: 100%;   
+  object-fit: contain;
+  display: block;
 }
 
 
@@ -412,6 +423,31 @@
     width: 100%;
 }
 
+.small-btn {
+  background-color: #020202;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.small-btn:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(to right, #dcdcdc, #c6c6c6); 
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+
 @media screen and (max-width: 480px) {
   .main__btn {
         padding: 12px 36px;
@@ -582,15 +618,21 @@
 .service-card {
     margin: 10px;
     height: 600px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     border-radius: 2px;
-    display: inline-flex;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
     flex-direction: column;
-    justify-content: stretch;
+    
     color: #fff;
     background-image: linear-gradient(to right, #000000, #434343);
-    padding: 20px;
-    transition: 0.3s ease-in;
+    padding: 30px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .service-card:nth-child(1) {
@@ -625,12 +667,29 @@
 .service-card h2 {
     text-align: left;
 }
-
 .service-card p {
     text-align: left;
     margin-top: 24px;
     font-size: 20px;
 }
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fafafa;
+}
+
+.input-field:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+  outline: none;
+}
+
+
 @media screen and (max-width: 1300px) {
     .service-wrapper {
         grid-template-columns: 1fr 1fr;
