@@ -200,8 +200,9 @@ document.getElementById('save-service').addEventListener('click', () => {
   .then(response => response.json())
   .then(data => {
     if (data.response) {
+      const outputText = document.querySelector('.letter-text');
+      outputText.textContent = data.response;
       const outputSection = document.getElementById("cover-letter-output");
-      outputSection.textContent = data.response;
       outputSection.classList.remove("hidden");
       outputSection.scrollIntoView({ behavior: "smooth" });
     } else {
@@ -213,6 +214,15 @@ document.getElementById('save-service').addEventListener('click', () => {
   });
 
 });
+
+document.getElementById('download-pdf').addEventListener('click', () => {
+  const letterText = document.querySelector('.letter-text').innerText;
+  const doc = new window.jspdf.jsPDF();
+  const lines = doc.splitTextToSize(letterText, 180); // wrap text to fit page
+  doc.text(lines, 15, 20);
+  doc.save('cover_letter.pdf');
+});
+
 
 // Collect contact form inputs and save as JSON
 document.getElementById('save-contact').addEventListener('click', () => {
