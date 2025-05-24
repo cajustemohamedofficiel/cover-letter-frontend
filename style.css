@@ -4,7 +4,9 @@
     padding: 0;
     font-family: 'Kumbh Sans', sans-serif;
 }
-
+html {
+    scroll-behavior: smooth;
+  }
 
 /*navigation bar style*/
 .navbar {
@@ -117,15 +119,14 @@
 /* Responsive */
 @media screen and (max-width: 768px) {
     .nav-menu {
-        display: grid;
-        grid-template-columns: auto;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         position: absolute;
         top: -1000px;
-        opacity: 1;
         transition: all 0.5s ease;
-        height: 50vh;
+        background-color: #131313;
         z-index: -1;
   }
 
@@ -135,7 +136,7 @@
         opacity: 1;
         transition: all 0.5s ease;
         z-index: 99;
-        height: 50vh;
+        height: auto;
         font-size: 1.6rem;
   }
     .navbar-container {

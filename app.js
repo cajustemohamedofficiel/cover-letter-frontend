@@ -7,6 +7,17 @@ const mobileMenu = () => {
     navMenu.classList.toggle('active');
 }
 
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      menu.classList.remove('is-active');
+    }
+  });
+});
+
+
 menu.addEventListener('click', mobileMenu);
 
 function addExperienceEntry(value = "") {
