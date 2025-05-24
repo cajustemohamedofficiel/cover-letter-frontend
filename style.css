@@ -732,3 +732,85 @@
     padding: 15px;
   }
 }
+
+/* General layout */
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+}
+
+header {
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.privacy-section {
+  margin-bottom: 40px;
+}
+
+.privacy-section h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.privacy-section p,
+.privacy-section ul {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.privacy-section ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+}
+
+/* Links (if any) */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .privacy-section h2 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+}
