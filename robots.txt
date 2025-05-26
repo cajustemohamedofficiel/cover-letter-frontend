@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://awesome-svoj.onrender.com/sitemap.xml
